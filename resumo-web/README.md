@@ -2,6 +2,17 @@
 
 ## Development
 
+### With Docker
+
+```
+export COMPOSE_FILE=docker-compose.dev.yml
+
+docker-compose build
+docker-compose up
+```
+
+### Without Docker
+
 **Install Python**
 
 Install the python version manager
