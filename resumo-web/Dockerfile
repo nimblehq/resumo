@@ -24,9 +24,10 @@ RUN apt-get update -qq && \
 
 # Install Python
 RUN apt-get update -qq && \
-    apt-get install -y --no-install-recommends python3 && \
+    apt-get install -y --no-install-recommends python3 python3-pip python3-setuptools && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    pip3 install -U pipenv
 
 WORKDIR $APP_HOME
 
@@ -57,6 +58,13 @@ RUN gem install bundler && \
       bundle install --jobs $BUNDLE_JOBS \
                      --path $BUNDLE_PATH ; \
     fi
+
+# Move the Pipfile and Pipfile.lock into the image
+COPY Pipfile* ./
+
+# Install Python dependencies
+RUN pipenv install --system --deploy && \
+    python3 -m spacy download en_core_web_sm
 
 # # Copying the app files must be placed after the dependencies setup
 # # since the app files always change thus cannot be cached
