@@ -17,7 +17,7 @@ function fetchGrade(body) {
   })
     .then(response => response.json())
     .then(json => {
-      console.log(json);
+      chrome.runtime.sendMessage({ action: 'showGrade', grade: json.grade });
     });
 }
 
