@@ -4,13 +4,17 @@
   "version": "1",
   "manifest_version": 2,
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html",
-    "default_title": "Click here!"
+    "default_popup": "popup/popup.html",
+    "default_title": "Resumo - Let him do the heavy lifting",
+    "default_icon": {                    
+      "16": "images/resumo16.png",         
+      "24": "images/resumo24.png",         
+      "32": "images/resumo32.png"          
+    }
   },
   "background": {
     "scripts": [
-      "background.js"
+      "scripts/background.js"
     ]
   },
   "permissions": [
