@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        - BUILD_ENV=development
+        - RUBY_ENV=development
+    image: ${DOCKER_IMAGE}-dev:${BRANCH_TAG}
+    ports:
+      - "${PORT}:${PORT}"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ruby-bundle:/bundle
+      - .:/app
+    environment:
+      - RACK_ENV=development
+      - RAILS_ENV=development
+
+volumes:
+  ruby-bundle:

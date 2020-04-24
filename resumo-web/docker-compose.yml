@@ -1,0 +1,22 @@
+version: '3.2'
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        - BUILD_ENV=production
+        - RUBY_ENV=production
+    image: ${DOCKER_IMAGE}:${BRANCH_TAG}
+    ports:
+      - "${PORT}:${PORT}"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ruby-bundle:/bundle
+    environment:
+      - RACK_ENV=production
+      - RAILS_ENV=production
+
+volumes:
+  ruby-bundle:

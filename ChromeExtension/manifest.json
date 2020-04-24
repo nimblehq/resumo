@@ -1,0 +1,23 @@
+{
+  "name": "Resumo",
+  "description": "Let him do the heavy lifting",
+  "version": "1",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Resumo - Let him do the heavy lifting",
+    "default_icon": {                    
+      "16": "images/resumo16.png",         
+      "24": "images/resumo24.png",         
+      "32": "images/resumo32.png"          
+    }
+  },
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "https://resumo-web.herokuapp.com/candidates/*"
+  ]
+}
