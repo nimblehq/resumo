@@ -2,15 +2,7 @@
 <html>
 
 <head>
-  <style type="text/css">
-    body {
-      min-width: 500px;
-      /* your desired width */
-      max-width: 500px;
-      position: relative;
-      vertical-align: middle;
-    }
-  </style>
+  <link rel="stylesheet" href="popup.css">
   <title>Resumo - Let him do the heavy lifting</title>
 </head>
 
@@ -19,6 +11,7 @@
     <h1>Resumo</h1>
     <input type="text" name="candidateUrl" id="candidateUrl" value="">
     <button id="postResume">Post resume</button>
+    <div class="loader"></div>
     <h2 id="grade">Grade:</h2>
   </div>
   <script src="popup.js"></script>
